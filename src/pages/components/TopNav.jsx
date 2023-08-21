@@ -13,16 +13,13 @@ const TopNav = () => {
 
                 <ul className="hidden md:flex gap-4 ">
                     <li>
-                        <Link className="hover:text-news-red" href='/contact'>ADVERTISE</Link>
-                    </li>
-                    <li>
                         <Link className="hover:text-news-red" href='/contact'>CONTACT</Link>
                     </li>
                     <li>
                         <Link className="hover:text-news-red" href='/about'>ABOUT</Link>
                     </li>
                     <li>
-                        <Link className="hover:text-news-red" href='/contact'>PRIVACY</Link>
+                        <Link className="hover:text-news-red" href='/privacy-policy'>PRIVACY</Link>
                     </li>
                 </ul>
             </div>

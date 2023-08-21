@@ -23,21 +23,21 @@ const Navbar = () => {
                             </Link>
                         </li>
                         <li className='cursor-pointer h-full flex justify-center items-center px-2 lg:px-4 border-l-2 border-news-white/25 hover:bg-news-black'>
-                            <Link className='font-bold text-lg flex items-center gap-1' href="/">
+                            <Link className='font-bold text-lg flex items-center gap-1' href="/haryana">
                                 <i className='bx bxs-flag bx-burst' ></i>
-                                <span>HARYANA</span>
+                                <span>हरियाणा</span>
                             </Link>
                         </li>
                         <li className='cursor-pointer h-full flex justify-center items-center px-2 lg:px-4 border-l-2 border-news-white/25 hover:bg-news-black'>
-                            <Link className='font-bold text-lg flex items-center gap-1' href="/">
+                            <Link className='font-bold text-lg flex items-center gap-1' href="/national">
                                 <i className='bx bxs-castle bx-burst' ></i>
-                                <span>NATIONAL</span>
+                                <span>राष्ट्रीय</span>
                             </Link>
                         </li>
                         <li className='cursor-pointer h-full flex justify-center items-center px-2 lg:px-4 border-l-2 border-news-white/25 hover:bg-news-black'>
-                            <Link className='font-bold text-lg flex items-center gap-1' href="/">
+                            <Link className='font-bold text-lg flex items-center gap-1' href="/international">
                                 <i className='bx bx-globe bx-burst'></i>
-                                <span>INTERNATIONAL</span>
+                                <span>अंतराष्ट्रीय </span>
                             </Link>
                         </li>
                         <DropDown />
@@ -46,16 +46,16 @@ const Navbar = () => {
                 {/* RIGHT NAV */}
                 <div className='xl:flex items-center gap-4 hidden'>
                     <button>
-                        <i className='hover:text-news-black bx bxl-facebook-circle bx-sm' ></i>
+                        <a href='https://www.facebook.com/bharatbrandingservices'><i className='hover:text-news-black bx bxl-facebook-circle bx-sm' ></i></a>
                     </button>
                     <button>
-                        <i className='hover:text-news-black bx bxl-twitter bx-sm' ></i>
+                        <a href='https://www.twitter.com/bharatbrandings'><i className='hover:text-news-black bx bxl-twitter bx-sm' ></i></a>
                     </button>
                     <button>
-                        <i className='hover:text-news-black bx bxl-instagram-alt bx-sm'></i>
+                        <a href='https://www.instagram.com/bharatbrandingservices'><i className='hover:text-news-black bx bxl-instagram-alt bx-sm'></i></a>
                     </button>
                     <button>
-                        <i className='hover:text-news-black bx bxs-envelope bx-sm' ></i>
+                        <a href='https://www.facebook.com/bharatbrandingservices'><i className='hover:text-news-black bx bxs-envelope bx-sm' ></i></a>
                     </button>
                 </div>
                 {/* HAMBURGER MENU */}

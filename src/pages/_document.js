@@ -6,11 +6,19 @@ import Socials from './sidebar/Socials'
 import Adbox from './sidebar/Adbox'
 import Forex from './sidebar/Forex'
 import Metal from './sidebar/Metal'
+import { decode } from 'html-entities'
+
 
 export default function Document() {
+
+  decode('&lt; &gt; &quot; &apos; &amp; &#169; &#8710;');
+
   return (
     <Html lang="en">
-      <Head />
+      <Head>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6707176738687530"
+          crossorigin="anonymous"></script>
+      </Head>
       <body>
         <TopNav />
         <Navbar />

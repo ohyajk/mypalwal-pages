@@ -1,5 +1,6 @@
 import api from "./api/api";
 import Breaking from "./components/Breaking";
+import Entertainment from "./home/Entertainment";
 import Haryana from "./home/Haryana";
 import Hero from "./home/Hero";
 import Hero2 from "./home/Hero2";
@@ -17,17 +18,21 @@ export async function getServerSideProps() {
   const response = await fetch(`${api}?categories=1`, { cache: 'no-store' });
   const adata = await response.json();
   const haryanaPosts = await adata.slice(0, 3)
-
+  // Get Entertainment
+  const responseEnt = await fetch(`${api}?categories=11`, { cache: 'no-store' });
+  const adataEnt = await responseEnt.json();
+  const entertainmentPosts = await adataEnt.slice(0, 3)
   return {
     props: {
       breakings,
       big4,
       haryanaPosts,
+      entertainmentPosts
     },
   };
 }
 
-export default function Home({ breakings, big4, haryanaPosts }) {
+export default function Home({ breakings, big4, haryanaPosts, entertainmentPosts }) {
   return (
     <>
       {/* Breakings */}
@@ -63,6 +68,7 @@ export default function Home({ breakings, big4, haryanaPosts }) {
       <h2 className="my-2 py-2 px-4 bg-news-red text-news-white text-2xl font-bold w-fit">
         मनोरंजन
       </h2>
+      <Entertainment data={entertainmentPosts} />
       {/* Technology */}
       <h2 className="my-2 py-2 px-4 bg-news-red text-news-white text-2xl font-bold w-fit">
         प्रौद्योगिकी

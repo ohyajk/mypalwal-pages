@@ -2,10 +2,9 @@ import React from 'react'
 import api from '../api/api'
 import Link from 'next/link'
 import Image from 'next/image'
-import { decode } from 'html-entities'
 
 
-const Haryana = ({ data }) => {
+const Entertainment = ({ data }) => {
 
     if (!data) {
         return <p>Loading...</p>;
@@ -19,7 +18,7 @@ const Haryana = ({ data }) => {
                     <Link key={a.id} href={`news/${a.slug}-${a.id}`} className=" cursor-pointer p-4 flex flex-col gap-2  rounded-md bg-news-red/5 hover:bg-news-black/10 hover:text-news-red">
                         <Image className="rounded-md h-[250px] w-full" src={a.featured_media_src_url} alt="article thumbnail" width={400} height={300} />
                         <h1 className="text-3xl font-bold">
-                            {decode(a.title.rendered)}
+                            {a.title.rendered}
                         </h1>
                         <p dangerouslySetInnerHTML={{ __html: first50 }} />
                     </Link>
@@ -30,4 +29,4 @@ const Haryana = ({ data }) => {
 }
 
 
-export default Haryana;
+export default Entertainment;

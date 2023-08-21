@@ -1,4 +1,5 @@
 
+import { decode } from 'html-entities';
 import Image from 'next/image';
 
 const fetchPostData = async (id) => {
@@ -11,7 +12,7 @@ const PostDetails = ({ postData }) => {
     const p = postData
     return (
         <article className='my-4 flex flex-col gap-2'>
-            <h1 className='font-bold text-4xl '>{p.title.rendered}</h1>
+            <h1 className='font-bold text-4xl '>{decode(p.title.rendered)}</h1>
             <div className='flex gap-2'>
                 <div className='flex justify-start items-center text-lg gap-1'>
                     <i className='bx bxs-time' ></i>
