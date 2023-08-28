@@ -1,8 +1,14 @@
+'Use Client'
 import Link from 'next/link'
-import React from 'react'
-import DropDown from './DropDown'
+import React, { useState } from 'react'
 
 const Navbar = () => {
+
+    const [show, setShow] = useState(false)
+
+    const categories = [{ name: 'होम', link: '/' }, { name: 'हरियाणा', link: '/category/haryana' }, { name: 'राष्ट्रीय', link: '/category/national' }, { name: 'अंतराष्ट्रीय', link: '/category/international' }, { name: 'राजनीती', link: '/category/politics' }, { name: 'मनोरंजन', link: '/category/entertainment' }, { name: 'खेल', link: '/category/sports' }, { name: 'प्रौद्योगिकी', link: '/category/technology' }]
+
+
     return (
         // MAIN NAVIGATION 
         <header className='bg-news-red w-full flex justify-center items-center box-border text-news-white'>
@@ -11,40 +17,28 @@ const Navbar = () => {
                 <div className='h-full w-full flex justify-between items-center gap-8'>
                     {/* LOGO OR TEXT */}
                     <div className=''>
-                        <h1 className='font-extrabold text-2xl lg:text-3xl whitespace-nowrap'>MY PALWAL</h1>
+                        {/* <h1 className='font-extrabold text-2xl lg:text-3xl whitespace-nowrap'>MY PALWAL</h1> */}
+                        <img className='p-2' src="/logoss.png" alt="" />
                     </div>
                     {/* MENU OR LINKS */}
                     <ul className='h-full w-full hidden md:flex justify-center items-center relative'>
                         {/* MENU BUTTONS */}
-                        <li className='cursor-pointer h-full flex justify-center items-center px-2 lg:px-4 border-l-2 border-news-white/25 hover:bg-news-black'>
-                            <Link className='font-bold text-lg flex items-center gap-1' href="/">
-                                <i className='bx bxs-home bx-burst'></i>
-                                <span>HOME</span>
-                            </Link>
-                        </li>
-                        <li className='cursor-pointer h-full flex justify-center items-center px-2 lg:px-4 border-l-2 border-news-white/25 hover:bg-news-black'>
-                            <Link className='font-bold text-lg flex items-center gap-1' href="/haryana">
-                                <i className='bx bxs-flag bx-burst' ></i>
-                                <span>हरियाणा</span>
-                            </Link>
-                        </li>
-                        <li className='cursor-pointer h-full flex justify-center items-center px-2 lg:px-4 border-l-2 border-news-white/25 hover:bg-news-black'>
-                            <Link className='font-bold text-lg flex items-center gap-1' href="/national">
-                                <i className='bx bxs-castle bx-burst' ></i>
-                                <span>राष्ट्रीय</span>
-                            </Link>
-                        </li>
-                        <li className='cursor-pointer h-full flex justify-center items-center px-2 lg:px-4 border-l-2 border-news-white/25 hover:bg-news-black'>
-                            <Link className='font-bold text-lg flex items-center gap-1' href="/international">
-                                <i className='bx bx-globe bx-burst'></i>
-                                <span>अंतराष्ट्रीय </span>
-                            </Link>
-                        </li>
-                        <DropDown />
+                        {
+                            categories.map((c, i) => {
+                                return (
+                                    <li key={c.name} className='cursor-pointer h-full flex justify-center items-center px-2 lg:px-4 border-l-2 last:border-r-2 border-news-white/25 hover:bg-news-black'>
+                                        <Link className='font-bold text-lg flex items-center gap-1' href={c.link}>
+                                            <span>{c.name}</span>
+                                        </Link>
+                                    </li>
+                                )
+                            })
+                        }
+
                     </ul>
                 </div>
                 {/* RIGHT NAV */}
-                <div className='xl:flex items-center gap-4 hidden'>
+                {/* <div className='xl:flex items-center gap-4 hidden'>
                     <button>
                         <a href='https://www.facebook.com/bharatbrandingservices'><i className='hover:text-news-black bx bxl-facebook-circle bx-sm' ></i></a>
                     </button>
@@ -57,12 +51,29 @@ const Navbar = () => {
                     <button>
                         <a href='https://www.facebook.com/bharatbrandingservices'><i className='hover:text-news-black bx bxs-envelope bx-sm' ></i></a>
                     </button>
-                </div>
+                </div> */}
                 {/* HAMBURGER MENU */}
                 <div className='md:hidden'>
-                    <button>
+                    <button onClick={() => {setShow(!show); console.log('wow')}}>
                         <i className='bx bx-menu bx-md'></i>
                     </button>
+                    {
+                        show &&
+                    <ul className='z-50 absolute left-0 top-0 bg-news-red h-full w-full flex flex-col md:hidden justify-center items-center py-8'>
+                        {/* MENU BUTTONS */}
+                        {
+                            categories.map((c, i) => {
+                                return (
+                                    <li key={c.name} className='cursor-pointer h-full w-full flex justify-center items-center px-2  hover:bg-news-black'>
+                                        <Link className='font-bold text-lg flex items-center gap-1' href={c.link}>
+                                            <span>{c.name}</span>
+                                        </Link>
+                                    </li>
+                                )
+                            })
+                        }
+                    </ul>
+                    }
                 </div>
             </nav>
         </header>

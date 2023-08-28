@@ -23,11 +23,11 @@ export default function Document() {
         <TopNav />
         <Navbar />
         <main className='flex flex-col items-center'>
-          <div className="text-news-black w-full max-w-7xl px-4 md:px-8 box-content grid grid-cols-4 gap-2">
-            <div className='col-span-3'>
+          <div className="text-news-black max-w-7xl px-2 md:px-8 box-content grid grid-cols-1 md:grid-cols-4 gap-2">
+            <div className='col-span-4 md:col-span-3'>
               <Main />
             </div>
-            <aside className='p-2 hidden lg:flex flex-col gap-2'>
+            <aside className='p-2 flex flex-col gap-2'>
               <Socials />
               <Adbox />
               <Forex />
